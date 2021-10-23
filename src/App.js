@@ -4,6 +4,7 @@ import './App.css';
 import Users from './Components/Users';
 import Home from './Components/Home Page';
 import { Route, Link } from 'react-router-dom';
+import User from './Components/User';
 
 const admin = {
   location: {
@@ -45,8 +46,11 @@ function App() {
            <Link to= '/users'>Friends</Link>
         </nav>
       </header>
-      <Route path ='/users'>
-        <Users users= {users}/>   
+      <Route path= '/users/:id'>
+        <User users = {users} />
+      </Route>
+      <Route exact path ='/users'>
+        <Users users= {users} />   
       </Route>
       <Route exact path= '/'>
         <Home />
