@@ -6,10 +6,18 @@ import Home from './Components/Home Page';
 import { Route, Link } from 'react-router-dom';
 
 const admin = {
-  location: 'California',
-  uuid: '12345',
-  picture: 'https://avatars.githubusercontent.com/u/87906218?v=4',
-  name: 'Justin Peisker',
+  location: {
+    state: 'California',
+  },
+  login: {
+    uuid: '12345'
+  },
+  picture: {
+    medium:'https://avatars.githubusercontent.com/u/87906218?v=4',
+  },
+  name: {
+    first:'Justin Peisker'
+  },
   email: 'j@j.com'
 }
 
@@ -17,13 +25,13 @@ const admin = {
 
 function App() {
 
-  const [users, setUsers] = useState([admin])
+  const [users, setUsers] = useState([admin ])
 
   useEffect(() => {
     axios.get('https://randomuser.me/api/?results=5')
     .then(res => {
-      // console.log(res);
-      // setUsers(res.data.results);
+      console.log(res);
+      setUsers([...users, ...res.data.results]);
     }).catch(err => {
       console.error(err);
     })

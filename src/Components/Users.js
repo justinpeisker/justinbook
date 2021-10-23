@@ -3,17 +3,15 @@ import React from 'react';
 const Users = (props) => {
 
     return(
-        <div>
-            {props.users.map(user => {
-               return (
-                 <div className= 'user-wrapper' key = {user.uuid}>
-                   <h2> {user.name} </h2>
-                   <img src= {user.picture} alt= {`This is a picture of ${user.name}`} />
-                   <p>Contact: {user.contact}</p>
-                   <p>Location: {user.location}</p>
+        <div className= 'users-wrapper'>
+            {props.users.map(user => (
+                 <div className= 'user-wrapper' key = {user.login.uuid}>
+                   <h2> {user.name.first} </h2>
+                   <img src= {user.picture.medium} alt= {`This is a picture of ${user.name}`} />
+                   <p>Contact: {user.email}</p>
+                   <p>Location: {user.location.state}</p>
                 </div>
-               )
-            })}
+            ))}
         </div>
     )
 }
