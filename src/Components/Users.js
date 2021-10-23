@@ -3,7 +3,15 @@ import React from 'react';
 const Users = (props) => {
 
     return(
-        <h2>Users</h2>
+        <div>
+            {props.users.map(user => {
+               return (
+                 <div>
+                    {user.name} 
+                </div>
+               )
+            })}
+        </div>
     )
 }
 
